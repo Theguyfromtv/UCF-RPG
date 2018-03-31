@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <!--- available charecter div with all the charecter divs inside it-->
+
+    <h1>Availble charecters</h1>
+    
+    <div id="availableCharecters">
+        <div id="german" class="charecter">
+            german
+        </div>
+        <div id="john" class="charecter">
+            john
+        </div>
+        <div id="alex" class="charecter">
+            alex
+        </div>
+        <div id="darren" class="charecter">
+            darren
+        </div>
+    </div>
+    <div id="attacker">
+        attacker:
+    </div>
+    <button id="attack">
+        attack
+    </button>
+    <div id="defenders">
+        defenders:
+    </div>
+    <div id="results">
+
+    </div>
+    
+<script>
+//create four objects- each has name, weapon with damage die, HP, and AC
+$(document).ready(function () {
+
+
+var german = {weapon: 0, ac: 10, hp:25};
+var john = {weapon: 0, ac: 7, hp: 20};
+var alex = {weapon: 0, ac: 13, hp: 28};
+var darren = {weapon: 0, ac: 9, hp: 26};
+var attack = 0
+
+console.log(attack)
+
+//once you click first opject's div, it's the attacker, it appends to the attacker div 
+
+
+if (attack!==0){
+    $("#availableCharecters").on("click", ".charecter", function(){
+    $("#defenders").append(this);
+})
+}
+else if (attack===0) {
+$("#availableCharecters").on("click", ".charecter", function(){
+
+$("#attacker").append(this);
+
+attack++;
+
+console.log(attack)
+})
+};
+
+})
+//then you pick the defender it appends to the defender div
+//once you click attack, the die rolls, and if attack number is higher than target AC, the difference is subtracted from target hp, this works both ways
+//once hp equals zero, that object is dead and dissapears
+
+
+
+</script>
+
+
+</body>
+</html>
