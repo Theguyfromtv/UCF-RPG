@@ -51,30 +51,30 @@ var german = {weapon: 0, ac: 10, hp:25};
 var john = {weapon: 0, ac: 7, hp: 20};
 var alex = {weapon: 0, ac: 13, hp: 28};
 var darren = {weapon: 0, ac: 9, hp: 26};
-var attack = 0
+var attack = false;
 
 console.log(attack)
 
 //once you click first opject's div, it's the attacker, it appends to the attacker div 
 
-
-if (attack!==0){
-    $("#availableCharecters").on("click", ".charecter", function(){
-    $("#defenders").append(this);
-})
-}
-else if (attack===0) {
+if (attack===false) {
 $("#availableCharecters").on("click", ".charecter", function(){
 
 $("#attacker").append(this);
 
-attack++;
+attack=true;
 
 console.log(attack)
 })
-};
+}
+else if (attack){
+    $("#availableCharecters").on("click", ".charecter", function(){
+    $("#defenders").append(this);
+})
+}
 
 })
+
 //then you pick the defender it appends to the defender div
 //once you click attack, the die rolls, and if attack number is higher than target AC, the difference is subtracted from target hp, this works both ways
 //once hp equals zero, that object is dead and dissapears
