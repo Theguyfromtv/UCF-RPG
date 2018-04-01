@@ -33,6 +33,7 @@
     <h3><span id="result"></span></h3>
     <h3>wins:<span id="wins"></span></h3>
     <h3>losses:<span id="losses"></span></h3>
+    <button id="reset">Reset Game</button>
 
   </div>
 
@@ -70,7 +71,9 @@
     console.log(tamaraValue);
 
     console.log(score);
-    
+
+    winLoss();
+
     $("#scoreNumber").text(score);
 
   })
@@ -83,7 +86,11 @@
 
     console.log(score);
 
+    winLoss();
+
     $("#scoreNumber").text(score);
+
+    
 
   })
 
@@ -95,14 +102,41 @@
 
     console.log(score);
 
+    winLoss();
+
     $("#scoreNumber").text(score);
+
 
   })
 
-if (score===number){
+winLoss=function(){ 
 
+  if (score===number){
 
-  
+    $("#result").text("You win!");
+
+    score=0;
+
+    wins++;
+
+    $("#wins").text(wins);
+
+  }
+
+  else if (score >number){
+
+      $("#result").text("You lose!");
+
+      score=0;
+
+      losses++;
+
+      $("#losses").text(losses);
+
+  }
+
+$("#results").on("click","#reset", function(){
+
   tamaraValue = Math.floor(Math.random()*15)+1;
 
   johnValue = Math.floor(Math.random()*15)+1;
@@ -111,31 +145,7 @@ if (score===number){
 
   number = Math.floor(Math.random()*20)+50;
 
-  $("#result").text("You win!");
-
-  wins++;
-
-  $("#wins").text(wins);
-
-}
-
-else if (score > number){
-
-    tamaraValue = Math.floor(Math.random()*15)+1;
-
-    johnValue = Math.floor(Math.random()*15)+1;
-
-    markValue = Math.floor(Math.random()*15)+1;
-
-    number = Math.floor(Math.random()*20)+50;
-
-    $("#result").text("You lose!");
-
-    losses++;
-
-    $("#losses").text(losses);
-
-
+} )
 
 }
 
