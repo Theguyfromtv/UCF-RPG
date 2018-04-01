@@ -1,88 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+  <title>simple crystal game</title>
+
+  <style type="text/css">
+
+    .staffImage {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+
 </head>
 <body>
 
-    <!--- available charecter div with all the charecter divs inside it-->
-
-    <h1>Availble charecters</h1>
-    
-    <div id="availableCharecters">
-        <div id="german" class="charecter">
-            german
-        </div>
-        <div id="john" class="charecter">
-            john
-        </div>
-        <div id="alex" class="charecter">
-            alex
-        </div>
-        <div id="darren" class="charecter">
-            darren
-        </div>
+  <h1>Match this! <span id="matchNumber"></span></h1>
+  <div id="staff">
+    <div id="tamara">
+      <img src="images/john.png" alt="">
     </div>
-    <div id="attacker">
-        attacker:
+    <div id="mark">
+      <img  src="images/mark.png" alt="">
     </div>
-    <button id="attack">
-        attack
-    </button>
-    <div id="defenders">
-        defenders:
+    <div id="john">
+      <img  src="images/tamara.png" alt="">
     </div>
-    <div id="results">
+  </div>
 
-    </div>
-    
-<script>
-//create four objects- each has name, weapon with damage die, HP, and AC
-$(document).ready(function () {
+  <div>
+    <h2>Your score: <span id="scoreNumber"></span></h2>
+  </div>
 
+  <!-- my life got switched turned upside down and i'd like to take a minute just sit right there I'll tell you how this is the javascript of this app-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-var german = {weapon: 0, ac: 10, hp:25};
-var john = {weapon: 0, ac: 7, hp: 20};
-var alex = {weapon: 0, ac: 13, hp: 28};
-var darren = {weapon: 0, ac: 9, hp: 26};
-var attack = false;
+  <script type="text/javascript">
 
-console.log(attack)
+  var number = 50;
 
-//once you click first opject's div, it's the attacker, it appends to the attacker div 
+  $("#matchNumber").text(number);
 
-if (attack===false) {
-$("#availableCharecters").on("click", ".charecter", function(){
+  var staff = $("#staff");
 
-$("#attacker").append(this);
-
-attack=true;
-
-console.log(attack)
-})
-}
-else if (attack){
-    $("#availableCharecters").on("click", ".charecter", function(){
-    $("#defenders").append(this);
-})
-}
-
-})
-
-//then you pick the defender it appends to the defender div
-//once you click attack, the die rolls, and if attack number is higher than target AC, the difference is subtracted from target hp, this works both ways
-//once hp equals zero, that object is dead and dissapears
+  var score = 0;
 
 
 
-</script>
+ 
 
-
+  </script>
 </body>
 </html>
