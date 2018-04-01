@@ -13,21 +13,22 @@
 
 </head>
 <body>
+  <!-- now this is a story all about how this is the html code-->
 
   <h1>Match this! <span id="matchNumber"></span></h1>
   <div id="staff">
-    <div id="tamara">
-      <img src="images/john.png" alt="">
+    <div>
+      <img id="john" src="images/john.png" alt="">
     </div>
     <div id="mark">
       <img  src="images/mark.png" alt="">
     </div>
-    <div id="john">
-      <img  src="images/tamara.png" alt="">
+    <div>
+      <img  id="tamara" src="images/tamara.png" alt="">
     </div>
   </div>
 
-  <div>
+  <div id="results">
     <h2>Your score: <span id="scoreNumber"></span></h2>
   </div>
 
@@ -36,13 +37,45 @@
 
   <script type="text/javascript">
 
-  var number = 50;
+  var score = 0;
+
+
+
+
+  $("#scoreNumber").text(score);
+
+  var number = Math.floor(Math.random()*20)+50;
+
+  console.log(number);
 
   $("#matchNumber").text(number);
 
-  var staff = $("#staff");
+  var tamaraValue = Math.floor(Math.random()*15)+1;
 
-  var score = 0;
+  var johnValue = Math.floor(Math.random()*15)+1;
+
+  var markValue = Math.floor(Math.random()*15)+1;
+
+  $("#staff").on("click", "#tamara", function(){
+
+    score+=tamaraValue;
+
+    console.log(tamaraValue);
+
+    console.log(score);
+    
+    $("#scoreNumber").text(score);
+
+  })
+
+
+if (score===number){
+  
+
+
+}
+
+
 
 
 
