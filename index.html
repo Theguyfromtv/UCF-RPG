@@ -33,6 +33,7 @@
     <h3><span id="result"></span></h3>
     <h3>wins:<span id="wins"></span></h3>
     <h3>losses:<span id="losses"></span></h3>
+    <h3 id="resetNotice"></h3>
     <button id="reset">Reset Game</button>
 
   </div>
@@ -64,7 +65,7 @@
 
   var wins = 0;
 
-  $("#staff").on("click", "#tamara", function(){
+  $("#staff").on("click", "#tamara", tamara=function(){
 
     score+=tamaraValue;
 
@@ -78,7 +79,7 @@
 
   })
 
-  $("#staff").on("click", "#mark", function(){
+  $("#staff").on("click", "#mark", mark=function(){
 
     score+=markValue;
 
@@ -94,7 +95,7 @@
 
   })
 
-  $("#staff").on("click", "#john", function(){
+  $("#staff").on("click", "#john", john=function(){
 
     score+=markValue;
 
@@ -121,6 +122,14 @@ winLoss=function(){
 
     $("#wins").text(wins);
 
+    $("#staff").off("click", "#tamara");
+
+    $("#staff").off("click", "#mark");
+
+    $("#staff").off("click", "#john");
+
+    $("#resetNotice").text("Reset the game to keep playing!");
+
   }
 
   else if (score >number){
@@ -133,6 +142,9 @@ winLoss=function(){
 
       $("#losses").text(losses);
 
+
+
+
   }
 
 $("#results").on("click","#reset", function(){
@@ -144,6 +156,11 @@ $("#results").on("click","#reset", function(){
   markValue = Math.floor(Math.random()*15)+1;
 
   number = Math.floor(Math.random()*20)+50;
+
+
+
+
+
 
 } )
 
