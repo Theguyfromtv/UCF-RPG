@@ -1,42 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>simple crystal game</title>
-
-  <style type="text/css">
-
-    .staffImage {
-      width: 200px;
-      height: 200px;
-    }
-  </style>
+  <title>The UCF Coding Bootcamp Game!</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>‌​
 
 </head>
 <body>
   <!-- now this is a story all about how this is the html code-->
-
-  <h1>Match this! <span id="matchNumber"></span></h1>
-  <div id="staff">
-    <div>
-      <img id="john" src="images/john.png" alt="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mx-auto text-center card text-white bg-info mb-3">
+            <h5 class="card-header">instructions</h5>
+            <p class="card-text">Every game, John, Mark, and Tamara's value is reset, and so is the number you must match. if you match the number, you win! if you go over it, you lose! once you win or lose, click the reset button to play again!</p>
+          <div class="card-body">
+            <h3 class="display-4">Match this: <span id="matchNumber"></span></h3>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="mark">
-      <img  src="images/mark.png" alt="">
-    </div>
-    <div>
-      <img  id="tamara" src="images/tamara.png" alt="">
+ 
+  <div class="col-md-12" id="staff">
+    <div class="row mt-5 mx-auto">
+  <div class="col-md">
+    <div class="card text-center mx-auto"  style="width: 18rem;">
+        <img class="card-img-top"  src="images/john.png" alt="">
+        <div class="card-body">
+          <button id="john" class="btn btn-info"> Add John's Value </button>
+        </div>
     </div>
   </div>
-
+  <div class="col-md">
+      <div class="card text-center mx-auto" id="mark" style="width: 18rem;">
+        <div >
+          <img class="card-img-top"   src="images/mark.png" alt="">
+          <div class="card-body">
+              <button id="mark" class="btn btn-info"> Add Mark's Value </button>
+            </div>
+      </div>
+      </div>
+    </div>
+    <div class="col-md">
+        <div class="card text-center mx-auto" id="tamara" style="width: 18rem;">
+            <img class="card-img-top" src="images/tamara.png" alt="">
+            <div class="card-body">
+                <button id="tamara" class="btn btn-info"> Add Tamara's Value </button>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="results">
-    <h2>Your score: <span id="scoreNumber"></span></h2>
-    <h3><span id="result"></span></h3>
-    <h3>wins:<span id="wins"></span></h3>
-    <h3>losses:<span id="losses"></span></h3>
-    <h3 id="resetNotice"></h3>
-    <button id="reset">Reset Game</button>
+      <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="card mx-auto text-center card text-white bg-info mb-3">
+              <div class="card-body">
+                <h2>Your score: <span id="scoreNumber"></span></h2>
+                <h3><span id="result"></span></h3>
+                <h3>wins:<span id="wins"></span></h3>
+                <h3>losses:<span id="losses"></span></h3>
+                <h3 id="resetNotice"></h3>
+                <button id="reset" class="btn btn-danger">Reset Game</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
+</div>
 
   <!-- my life got switched turned upside down and i'd like to take a minute just sit right there I'll tell you how this is the javascript of this app-->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -122,11 +158,8 @@ winLoss=function(){
 
     $("#wins").text(wins);
 
-    $("#staff").off("click", "#tamara");
+    $("#resetNotice").show();
 
-    $("#staff").off("click", "#mark");
-
-    $("#staff").off("click", "#john");
 
     $("#resetNotice").text("Reset the game to keep playing!");
 
@@ -142,6 +175,10 @@ winLoss=function(){
 
       $("#losses").text(losses);
 
+      $("#resetNotice").show();
+
+
+      $("#resetNotice").text("Reset the game to keep playing!");
 
 
 
@@ -157,9 +194,13 @@ $("#results").on("click","#reset", function(){
 
   number = Math.floor(Math.random()*20)+50;
 
+  $("#matchNumber").text(number);
 
+  score=0;
 
+  $("#scoreNumber").text(score);
 
+  $("#resetNotice").hide();
 
 
 } )
